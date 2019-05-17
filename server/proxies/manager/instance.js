@@ -24,7 +24,7 @@ module.exports = class Instance extends EventEmitter {
         self._alive = false;
         self._aliveCount = void 0;
         self._rqCount = 0;
-        self._useragent = useragent.generateBrowser();
+        self._useragent = useragent.generateBrowser;
 
 
         // Check is alive
@@ -211,8 +211,8 @@ module.exports = class Instance extends EventEmitter {
     }
 
 
-    updateRequestHeaders(headers) {
-        headers['user-agent'] = this._useragent;
+    updateRequestHeaders(req, headers) {
+        headers['user-agent'] = this._useragent(headers['x-browser-type']);
 
         if (this._config.addProxyNameInRequest) {
             headers['x-cache-proxyname'] = this.name;
