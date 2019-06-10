@@ -120,7 +120,7 @@ module.exports = class Master {
             }
 
             // Update headers
-            instance.updateRequestHeaders(req);
+            instance.updateRequestHeaders(req.headers);
 
             // Make request
             const proxyOpts = _.merge(createProxyOpts(req.url), {

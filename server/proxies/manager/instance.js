@@ -186,7 +186,7 @@ module.exports = class Instance extends EventEmitter {
     get stats() {
         return _.merge({}, this._model.stats, {
             alive: this._alive,
-            useragent: this._useragent,
+            useragent: 'dynamic',
         });
     }
 
@@ -211,7 +211,7 @@ module.exports = class Instance extends EventEmitter {
     }
 
 
-    updateRequestHeaders(req, headers) {
+    updateRequestHeaders(headers) {
         headers['user-agent'] = this._useragent(headers['x-browser-type']);
 
         if (this._config.addProxyNameInRequest) {

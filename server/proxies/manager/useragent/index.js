@@ -49,9 +49,9 @@ function generateBrowser(browserType) {
     let candidates = []
 
     switch(browserType) {
-      'desktop': candidates = desktopBrowsersUA;break;
-      'mobile': candidates = desktopBrowsersUA; break;
-    default: candidates = desktopBrowsersUA; break;
+      case 'desktop': candidates = desktopBrowsersUA; break;
+      case 'mobile': candidates = mobileBrowsersUA; break;
+      default: candidates = desktopBrowsersUA.concat(mobileBrowsersUA); break;
     }
 
     return candidates[Math.floor(Math.random() * candidates.length)];
