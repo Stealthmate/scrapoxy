@@ -109,8 +109,8 @@ module.exports = class ProviderAWSEC2 {
             return _.map(instancesDesc, (instanceDesc) => ({
                     id: instanceDesc.InstanceId,
                     status: instanceDesc.State.Name,
-                    ip: instanceDesc.PublicIpAddress,
-                    tag: getTag(instanceDesc),
+                    ip: self._config.usePrivateIp ? instanceDesc.PrivateIpAddress : instanceDesc.PublicIpAddress,
+                    tag: getTag(instanceDesc)
             }));
 
             ////////////

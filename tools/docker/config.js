@@ -86,6 +86,7 @@ function getProvidersByType() {
                         process.env.PROVIDERS_AWSEC2_INSTANCE_SECURITYGROUPS || 'forward-proxy',
                     ],
                 },
+                usePrivateIp: process.env.PROVIDERS_AWSEC2_USE_PRIVATE_IP === 'true',
                 tag: process.env.PROVIDERS_AWSEC2_TAG || 'Proxy',
                 max,
             }];
